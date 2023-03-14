@@ -1,0 +1,4 @@
+defaults:
+  - dataset: default
+  - split@inner_cv: kfold
+  - split@outer_cv: stratified-kfold

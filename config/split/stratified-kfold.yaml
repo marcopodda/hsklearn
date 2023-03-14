@@ -1,0 +1,2 @@
+_target_: sklearn.model_selection.StratifiedKFold
+n_splits: 5

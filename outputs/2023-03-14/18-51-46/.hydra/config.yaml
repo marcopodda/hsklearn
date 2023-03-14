@@ -1,0 +1,8 @@
+dataset:
+  _target_: sklearn.datasets.load_breast_cancer
+inner_cv:
+  _target_: sklearn.model_selection.KFold
+  n_splits: 4
+outer_cv:
+  _target_: sklearn.model_selection.KFold
+  n_splits: 3
