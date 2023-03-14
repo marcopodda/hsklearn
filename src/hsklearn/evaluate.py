@@ -1,6 +1,8 @@
 import hydra
 from omegaconf import DictConfig
 
+from hsklearn import CONFIG_ROOT
+
 
 def evaluate(cfg: DictConfig):
     """Evaluate function."""
@@ -9,7 +11,7 @@ def evaluate(cfg: DictConfig):
 
 @hydra.main(
     version_base="1.3",
-    config_path="../../config",
+    config_path=CONFIG_ROOT.as_posix(),
     config_name="evaluate.yaml",
 )
 def main(cfg: DictConfig) -> None:

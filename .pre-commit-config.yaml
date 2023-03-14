@@ -52,6 +52,8 @@ repos:
       - id: flake8
         args:
           [
+            "--max-line-length",
+            "120",
             "--extend-ignore",
             "E203,E402,E501,F401,F841",
             "--exclude",
