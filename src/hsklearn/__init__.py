@@ -1,20 +1,12 @@
 import os
 from pathlib import Path
 
-
-def get_path(key: str, default: Path) -> Path:
-    """Retrieves path from environment or uses default."""
-    if key not in os.environ:
-        return default
-    return Path(os.environ[key])
-
+from dotenv import load_dotenv
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 
-DEFAULT_DATA_ROOT = PROJECT_ROOT / "data"
-DEFAULT_EXPERIMENTS_ROOT = PROJECT_ROOT / "experiments"
-DEFAULT_CONFIG_ROOT = PROJECT_ROOT / "config"
+load_dotenv(dotenv_path=PROJECT_ROOT / ".env")
 
-CONFIG_ROOT = get_path("CONFIG_ROOT", default=DEFAULT_CONFIG_ROOT)
-EXPERIMENTS_ROOT = get_path("EXPERIMENTS_ROOT", default=DEFAULT_EXPERIMENTS_ROOT)
-DATA_ROOT = get_path("DATA_ROOT", default=DEFAULT_DATA_ROOT)
+CONFIG_ROOT = PROJECT_ROOT.joinpath(os.environ["CONFIG_ROOT"])
+DATA_ROOT = PROJECT_ROOT.joinpath(os.environ["DATA_ROOT"])
+EXPERIMENTS_ROOT = PROJECT_ROOT.joinpath(os.environ["EXPERIMENTS_ROOT"])
